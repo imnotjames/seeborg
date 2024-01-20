@@ -259,7 +259,6 @@ void cleanup(void)
     cout << "Saving dictionary...\n";
     gSeeBorg.SaveSettings();
     cout << "Saving settings...\n";
-    SaveBotSettings();
 }
 
 static void sig_term(int i)
@@ -284,7 +283,6 @@ int main(int argc, char *argv[])
     LoadBotSettings();
     if (argc < 2) {
         if (botsettings.server.empty()) {
-            SaveBotSettings();
             cout << "No server to connect to (check seeborg-irc.cfg)";
             return 1;
         }

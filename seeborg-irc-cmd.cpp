@@ -1,17 +1,12 @@
 #include "seeborg-irc-cmd.h"
 
 #include <cstdlib>
-#include <csignal>
 #include <clocale>
-#include <cctype>
-#include <fstream>
-#include <cstring>
 #include <iostream>
 #include <sstream>
 #include <iomanip>
 
 #include "seeborg-irc.h"
-#include "seeutil.h"
 
 using namespace std;
 
@@ -106,13 +101,6 @@ SEEBORG_CMD(Learning) {
     return retstr;
 }
 
-SEEBORG_CMD(Save) {
-    cout << "Saving settings...\n";
-    SaveBotSettings();
-    self->SaveSettings();
-    return "Settings saved.";
-}
-
 
 static const BotCommand ircbotcmds[] = {
     {"shutup", "As the name says (IRC)", CMD_Shutup_f},
@@ -123,8 +111,6 @@ static const BotCommand ircbotcmds[] = {
     {"replyrate", "Show/set reply rate (IRC)", CMD_Replyrate_f},
     {"replynick", "Show/set nick reply rate (IRC)", CMD_Replynick_f},
     {"replymagic", "Show/set magic word reply rate (IRC)", CMD_Replyword_f},
-
-    {"save", "Immedeately save dictionary and settings (IRC)", CMD_Save_f},
 
     {
         "learning",

@@ -65,6 +65,5 @@ struct BotSettings {
 extern BotSettings botsettings;
 
 void LoadBotSettings();
-void SaveBotSettings();
 
 #endif
