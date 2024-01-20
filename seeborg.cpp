@@ -229,6 +229,17 @@ int SeeBorg::FilterMessage(string &message) {
         }
         break;
     }
+
+    // Trim spaces at start of message
+    for (int i = 0, sz = message.size(); i <= sz; i++) {
+        if (message[i] == ' ') {
+            continue;
+        }
+
+        message.erase(0, i);
+        break;
+    }
+
     lowerString(message);
 
     return true;
