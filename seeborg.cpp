@@ -219,6 +219,18 @@ int SeeBorg::FilterMessage(string &message) {
         }
     }
 
+    // Remove message start text that matches the discord bridge
+    for (int i = 0, sz = message.size(), wordCount = 0; i <= sz && wordCount < 2; i++) {
+        if (message[i] == ' ') {
+            wordCount++;
+        }
+
+        if (message[i] == '>') {
+            message.erase(0, i+1);
+            break;
+        }
+    }
+
     // Remove message start text in the form NICK: from the start
     for (int i = 0, sz = message.size(); i != sz; i++) {
         if (isalnum(message[i]) || message[i] == '_' || message[i] == '-') {
