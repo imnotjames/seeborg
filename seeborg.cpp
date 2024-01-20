@@ -8,7 +8,6 @@
 #include "seeutil.h"
 
 #define LINE_SEP "."
-#define LINES_TXT "lines.txt"
 
 using namespace std;
 
@@ -20,9 +19,8 @@ void SeeBorg::getIKnow(std::ostream& out) const {
     out << " per word), " << lines.size() << " lines.";
 }
 
-bool SeeBorg::LoadSettings() {
-    // TODO: WIP
-    ifstream ifs(LINES_TXT);
+bool SeeBorg::LoadSettings(const std::string& filename) {
+    ifstream ifs(filename);
     if (ifs.bad()) {
         cout << "Not found, creating dictionary.\n";
         return false;
@@ -41,8 +39,8 @@ bool SeeBorg::LoadSettings() {
     return true;
 }
 
-bool SeeBorg::SaveSettings() {
-    ofstream ofs(LINES_TXT);
+bool SeeBorg::SaveSettings(const std::string& filename) {
+    ofstream ofs(filename);
     for (auto &line : lines) {
         ofs << line << endl;
     }

@@ -31,6 +31,8 @@ struct BotSettings {
 
         serverport = 6667;
         autosaveperiod = 600;
+
+        dictionaryFile = "lines.txt";
     }
     // IRC-specific
     std::string server;
@@ -46,6 +48,7 @@ struct BotSettings {
     float replyrate;
     int learning;
 
+    std::string dictionaryFile;
 
     int speaking;
     int stealth;		// TODO

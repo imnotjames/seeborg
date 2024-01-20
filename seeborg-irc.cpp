@@ -257,8 +257,7 @@ void cleanup(void)
         irc_cmd_quit(Session, botsettings.quitmessage.c_str());
     }
     cout << "Saving dictionary...\n";
-    gSeeBorg.SaveSettings();
-    cout << "Saving settings...\n";
+    gSeeBorg.SaveSettings(botsettings.dictionaryFile);
 }
 
 static void sig_term(int i)
@@ -307,7 +306,7 @@ int main(int argc, char *argv[])
 
     srand(time(NULL));
     cout << "Loading dictionary...\n";
-    gSeeBorg.LoadSettings();
+    gSeeBorg.LoadSettings(botsettings.dictionaryFile);
     signal(SIGINT, sig_term);
     signal(SIGTERM, sig_term);
 

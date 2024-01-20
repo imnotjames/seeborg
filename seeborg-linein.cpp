@@ -24,8 +24,10 @@ int main(int argc, char *argv[])
     string body;
     srand(time(NULL));
 
+    std::string filename = argc > 1 ? argv[1] : "lines.txt";
+
     cout << "Loading dictionary..." << endl;
-    lSeeBorg.LoadSettings();
+    lSeeBorg.LoadSettings(filename);
 
     cout << endl << "SeeBorg offline chat, learning disabled."
          << " Press CTRL-C to quit." << endl << endl;
@@ -42,6 +44,6 @@ int main(int argc, char *argv[])
         }
     }
 
-    lSeeBorg.SaveSettings();
+    lSeeBorg.SaveSettings(filename);
     return 0;
 }

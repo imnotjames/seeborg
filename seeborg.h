@@ -29,8 +29,8 @@ public:
     int Learn(std::string &body);
     std::string Reply(std::string message);
 
-    bool LoadSettings();
-    bool SaveSettings();
+    bool LoadSettings(const std::string& filename);
+    bool SaveSettings(const std::string& filename);
 
     std::string ParseCommands(const std::string& command);
 
