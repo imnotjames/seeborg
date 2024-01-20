@@ -3,7 +3,7 @@
 
 #include "seeborg.h"
 
-#include <libircclient/libircclient.h>
+#include <libircclient.h>
 
 #include "seeborg-irc-settings.h"
 #include "seeborg-irc-cmd.h"
